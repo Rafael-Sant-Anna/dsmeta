@@ -14,7 +14,7 @@ import com.santanna.dsmeta.services.SaleService;
 import com.santanna.dsmeta.services.SmsService;
 
 @RestController
-@RequestMapping(value="/sales")
+@RequestMapping(value = "/sales")
 public class SaleController {
 	
 	@Autowired
@@ -25,11 +25,10 @@ public class SaleController {
 	
 	@GetMapping
 	public Page<Sale> findSales(
-		@RequestParam(value="minDate", defaultValue = "")	String minDate, 
-		@RequestParam(value="maxDate", defaultValue = "")	String maxDate, 
-			Pageable pageable) 
-	{
-		return service.findSales(minDate,maxDate,pageable);
+		@RequestParam(value = "minDate", defaultValue = "")	String minDate, 
+		@RequestParam(value = "maxDate", defaultValue = "")	String maxDate, 
+			Pageable pageable){
+		return service.findSales(minDate, maxDate, pageable);
 	}
 	
 	@GetMapping("/{id}/notification")
